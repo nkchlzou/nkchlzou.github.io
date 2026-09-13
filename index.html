@@ -1,0 +1,425 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Changliang Zou (邹长亮), Professor at Nankai University. Research in predictive inference, change-point and outlier detection, and machine learning.">
+  <meta name="theme-color" content="#65416d">
+  <title>Changliang Zou (邹长亮) | Nankai University</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #25232b;
+      --muted: #62606b;
+      --accent: #65416d;
+      --accent-dark: #472b4d;
+      --line: #e5e1e7;
+      --soft: #f7f5f8;
+      --width: 1056px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 88px; }
+    body { margin: 0; color: var(--ink); background: #fff;
+      font: 16px/1.75 -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, "Microsoft YaHei", sans-serif;
+      -webkit-font-smoothing: antialiased; }
+    a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 4px; }
+    a:hover { color: var(--accent-dark); }
+    a:focus-visible, button:focus-visible { outline: 3px solid var(--accent); outline-offset: 5px; }
+    .container { width: min(var(--width), calc(100% - 80px)); margin-inline: auto; }
+    .skip-link { position: absolute; top: -80px; left: 20px; background: white; padding: 8px 16px; z-index: 20; }
+    .skip-link:focus { top: 12px; }
+    .site-header { background: #fff; border-top: 4px solid var(--accent); border-bottom: 1px solid var(--line); }
+    .header-inner { min-height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .brand { color: var(--ink); text-decoration: none; font-size: 17px; font-weight: 600; letter-spacing: .01em; }
+    .nav { display: flex; gap: 27px; flex-wrap: wrap; }
+    .nav a { color: var(--muted); text-decoration: none; font-size: 14px; }
+    .nav a:hover { color: var(--accent); text-decoration: underline; }
+    .profile { display: grid; grid-template-columns: minmax(0, 1fr) 256px; gap: 72px; align-items: center; padding: 52px 0 42px; }
+    h1 { margin: 0 0 14px; font-size: 43px; line-height: 1.22; letter-spacing: -.035em; font-weight: 650; }
+    .chinese-name { display: inline-block; font-family: "Songti SC", "SimSun", "Noto Serif CJK SC", serif; font-size: 27px; letter-spacing: .08em; font-weight: 500; margin-left: 13px; white-space: nowrap; }
+    .position { margin: 0 0 2px; font-size: 18px; font-weight: 550; }
+    .affiliation { margin: 0 0 21px; color: var(--muted); line-height: 1.65; }
+    .contact { margin: 0; font-size: 15px; line-height: 1.7; }
+    .contact > div { display: grid; grid-template-columns: 52px minmax(0,1fr); column-gap: 17px; margin-bottom: 6px; }
+    .contact dt { color: var(--muted); }
+    .contact dd { margin: 0; overflow-wrap: anywhere; }
+    .contact a { text-decoration: none; }
+    .contact a:hover { text-decoration: underline; }
+    .profile-links { margin: 20px 0 0; display: flex; align-items: center; flex-wrap: wrap; gap: 10px 22px; font-size: 14px; }
+    .profile-links a { text-decoration: none; font-weight: 550; border-bottom: 1px solid #cbb9d0; }
+    .photo { margin: 0; }
+    .portrait-frame { display: block; position: relative; width: 100%; aspect-ratio: 4 / 5; overflow: hidden; background: var(--soft); border-radius: 3px; }
+    .portrait-frame img { display: block; width: 100%; height: 100%; object-fit: cover; }
+    /* Display-only crop. The full, unmodified photograph is linked below. */
+    .portrait-frame.is-cropped img { position: absolute; width: 230%; max-width: none; height: auto; left: -62%; top: -83%; }
+    .photo figcaption { margin-top: 7px; text-align: right; font-size: 11px; color: var(--muted); }
+    .photo figcaption a { color: var(--muted); text-decoration: none; }
+    .photo figcaption a:hover { text-decoration: underline; }
+    .intro { border-top: 1px solid var(--line); padding: 28px 0 32px; }
+    .info-row { display: grid; grid-template-columns: 154px minmax(0,1fr); gap: 30px; margin-bottom: 20px; }
+    .info-row:last-child { margin-bottom: 0; }
+    .info-row h2 { margin: 1px 0 0; font-size: 16px; line-height: 1.7; font-weight: 650; }
+    .info-row p { margin: 0; }
+    .publications { border-top: 1px solid var(--line); padding-top: 32px; }
+    .section-heading { display: flex; align-items: baseline; flex-wrap: wrap; justify-content: space-between; gap: 8px 20px; margin-bottom: 12px; }
+    .section-heading h2 { margin: 0; font-size: 25px; line-height: 1.4; letter-spacing: -.015em; font-weight: 650; }
+    .scholar-note { margin: 0; font-size: 14px; color: var(--muted); }
+    .publication-jumps { display: flex; gap: 20px; margin-bottom: 29px; font-size: 13px; }
+    .publication-jumps a { text-decoration: none; }
+    .publication-jumps a:hover { text-decoration: underline; }
+    .publication-group { margin: 0 0 38px; }
+    .publication-group h3 { margin: 0 0 22px; display: flex; align-items: center; gap: 15px; font-size: 18px; font-weight: 600; }
+    .publication-group h3::after { content: ""; height: 1px; background: var(--line); flex: 1; }
+    .paper-list { padding-left: 27px; margin: 0; }
+    .paper { padding-left: 7px; margin-bottom: 17px; font-size: 15.5px; line-height: 1.8; overflow-wrap: anywhere; }
+    .paper::marker { color: #89838e; font-size: 12px; font-variant-numeric: tabular-nums; }
+    .paper-authors { color: #57515e; }
+    .paper-title { color: var(--ink); font-weight: 550; }
+    .paper-title a { color: inherit; }
+    .paper-venue { color: var(--accent); font-style: normal; font-weight: 600; }
+    .paper-details { color: #57515e; }
+    .site-footer { border-top: 1px solid var(--line); margin-top: 46px; padding: 23px 0 34px; color: var(--muted); font-size: 13px; }
+    .footer-inner { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+    .footer-inner p { margin: 0; }
+    .footer-inner a { color: var(--muted); text-decoration: none; }
+    .footer-inner a:hover { text-decoration: underline; }
+    @media (max-width: 900px) {
+      .profile { gap: 38px; grid-template-columns: minmax(0,1fr) 218px; }
+      h1 { font-size: 36px; }
+      .chinese-name { font-size: 23px; margin-left: 8px; }
+      .info-row { grid-template-columns: 136px minmax(0,1fr); gap: 24px; }
+    }
+    @media (max-width: 680px) {
+      html { scroll-padding-top: 24px; }
+      .container { width: calc(100% - 40px); }
+      .header-inner { min-height: 89px; flex-direction: column; align-items: flex-start; justify-content: center; gap: 6px; padding: 12px 0; }
+      .brand { font-size: 16px; }
+      .nav { gap: 23px; }
+      .nav a { font-size: 13px; }
+      .profile { grid-template-columns: 1fr; gap: 28px; padding: 31px 0 28px; }
+      .profile-copy { order: 1; }
+      .photo { width: min(222px, 70%); order: 2; }
+      h1 { font-size: 34px; margin-bottom: 12px; }
+      .chinese-name { font-size: 23px; margin-left: 8px; }
+      .contact { font-size: 14px; }
+      .contact > div { grid-template-columns: 46px minmax(0,1fr); gap: 13px; }
+      .profile-links { margin-top: 18px; }
+      .photo figcaption { text-align: left; }
+      .info-row { grid-template-columns: 1fr; gap: 5px; margin-bottom: 22px; }
+      .info-row p { font-size: 15px; line-height: 1.8; }
+      .intro { padding: 25px 0; }
+      .section-heading h2 { font-size: 23px; }
+      .scholar-note { font-size: 13px; }
+      .publication-jumps { margin-bottom: 24px; }
+      .publication-group h3 { font-size: 17px; }
+      .paper { font-size: 14.5px; line-height: 1.8; padding-left: 3px; margin-bottom: 17px; }
+      .paper-list { padding-left: 22px; }
+    }
+    @media (max-width: 370px) {
+      h1 { font-size: 29px; }
+      .chinese-name { font-size: 21px; margin-left: 6px; }
+      .nav { gap: 17px; }
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+    @media print {
+      body { font-size: 11pt; }
+      .container { width: 100%; }
+      .site-header, .profile-links, .photo figcaption, .publication-jumps, .site-footer, .skip-link { display: none; }
+      .profile { padding-top: 0; grid-template-columns: 1fr 150px; gap: 30px; }
+      h1 { font-size: 27pt; }
+      .paper { break-inside: avoid; font-size: 10.5pt; }
+      .publication-group h3 { break-after: avoid; }
+      a { color: inherit; text-decoration: none; }
+    }
+  </style>
+</head>
+<body id="top" data-homepage-version="1">
+  <!-- 本页为完整静态网页，无需安装软件或运行构建命令。 -->
+  <!-- 如需不写代码地更新内容，请使用压缩包中的“维护工具.html”，导入本文件。 -->
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" id="nav-name" href="#top">Changliang Zou</a>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="#bio">Bio</a>
+        <a href="#research">Research</a>
+        <a href="#teaching">Teaching</a>
+        <a href="#publications">Publications</a>
+      </nav>
+    </div>
+  </header>
+  <main class="container" id="main">
+    <!-- 个人信息：保持原 Google Sites 中的职称、单位及联系方式。 -->
+    <section class="profile" aria-labelledby="profile-heading">
+      <div class="profile-copy">
+        <h1 id="profile-heading"><span id="profile-name">Changliang Zou</span><span class="chinese-name" id="profile-name-cn" lang="zh-CN">邹长亮</span></h1>
+        <p class="position" id="profile-position">Professor</p>
+        <p class="affiliation"><span id="profile-school">School of Statistics and Data Sciences</span><br><span id="profile-university">Nankai University</span></p>
+        <dl class="contact">
+          <div><dt>Office</dt><dd><span id="profile-office">Room 344, Fansun Building</span><br><span id="profile-address">Nankai University, Tianjin, 300071</span></dd></div>
+          <div><dt>Tel</dt><dd><a id="profile-phone" href="tel:+862223498233">(86)-22-23498233</a></dd></div>
+          <div><dt>Email</dt><dd><a id="profile-email" href="mailto:zoucl@nankai.edu.cn">zoucl@nankai.edu.cn</a><br><a id="profile-email-alt" href="mailto:nk.chlzou@gmail.com">nk.chlzou@gmail.com</a></dd></div>
+        </dl>
+        <p class="profile-links">
+          <a id="profile-chinese-link" href="https://my.nankai.edu.cn/stat/zzl/list.htm" target="_blank" rel="noopener noreferrer" lang="zh-CN">中文主页 <span aria-hidden="true">↗</span></a>
+          <a class="scholar-link" href="https://scholar.google.com/citations?hl=zh-CN&amp;user=LPwSdmwAAAAJ" target="_blank" rel="noopener noreferrer">Google Scholar <span aria-hidden="true">↗</span></a>
+        </p>
+      </div>
+      <figure class="photo">
+        <a class="portrait-frame is-cropped" id="portrait-frame" href="portrait.jpg" target="_blank" rel="noopener" aria-label="View the original photograph">
+          <img id="profile-photo" src="portrait.jpg" width="1279" height="1706" alt="Speaking at an academic event" fetchpriority="high">
+        </a>
+        <figcaption><a href="portrait.jpg" target="_blank" rel="noopener">View full photo <span aria-hidden="true">↗</span></a></figcaption>
+      </figure>
+    </section>
+
+    <div class="intro">
+      <section class="info-row" id="bio" aria-labelledby="bio-heading">
+        <h2 id="bio-heading">Short Bio</h2>
+        <p id="bio-text">I obtained B.S, M.S, and Ph.D. in Statistics, from School of Mathematical Sciences, Nankai University, in 2003, 2006, and 2008, respectively. I joined Nankai University, in June, 2009.</p>
+      </section>
+      <section class="info-row" id="research" aria-labelledby="research-heading">
+        <h2 id="research-heading">Research Interests</h2>
+        <p id="research-text">Predictive Inference; Change-Point and Outlier Detection; Machine Learning</p>
+      </section>
+      <section class="info-row" id="teaching" aria-labelledby="teaching-heading">
+        <h2 id="teaching-heading">Teaching</h2>
+        <p id="teaching-text">Advanced Statistics I、II (PG); Introduction to Data Science (UG)</p>
+      </section>
+    </div>
+
+    <!-- 论文内容及排列顺序按原网站迁移，仅统一空格、引号与页码连接符。 -->
+    <section class="publications" id="publications" aria-labelledby="publications-heading">
+      <div class="section-heading">
+        <h2 id="publications-heading">Selected Recent Publications</h2>
+        <p class="scholar-note">Full list on <a class="scholar-link" href="https://scholar.google.com/citations?hl=zh-CN&amp;user=LPwSdmwAAAAJ" target="_blank" rel="noopener noreferrer">Google Scholar <span aria-hidden="true">↗</span></a></p>
+      </div>
+      <nav class="publication-jumps" aria-label="Publication categories">
+        <a href="#journal-papers">Journal papers ↓</a>
+        <a href="#conference-papers">Conference papers ↓</a>
+      </nav>
+      <section class="publication-group" id="journal-papers" aria-labelledby="journal-heading">
+        <h3 id="journal-heading">Refereed journal papers</h3>
+        <ol class="paper-list" id="journal-list">
+          <li class="paper">
+            <span class="paper-authors">Huo, Y., Wu, X., Zou, C., &amp; Ren, H.</span>
+            “<span class="paper-title">Unified conformalized multiple testing with full data efficiency</span>”,
+            <em class="paper-venue">JRSSB</em><span class="paper-details">, accepted</span>.
+          </li>
+          <li class="paper">
+            <span class="paper-authors">Bao, Y., Hu, Y., Ren, H., Zhao, P., and Zou, C.</span>
+            “<span class="paper-title">Optimal model selection for conformalized robust optimization</span>”,
+            <em class="paper-venue">JASA</em><span class="paper-details">, accepted</span>.
+          </li>
+          <li class="paper">
+            <span class="paper-authors">Xu, C., Yu, Y., Wang, Z., Zou, C. and Ren, H.</span>
+            “<span class="paper-title">Aggregating conformal prediction sets via alpha-allocation</span>”,
+            <em class="paper-venue">Biometrika</em><span class="paper-details">, accepted</span>.
+          </li>
+          <li class="paper">
+            <span class="paper-authors">Min, Y., Peng, L. and Zou, C.</span>
+            “<span class="paper-title">Enhanced localized conformal prediction with imperfect auxiliary information</span>”,
+            <em class="paper-venue">JASA</em><span class="paper-details">, accepted</span>.
+          </li>
+          <li class="paper">
+            <span class="paper-authors">Cui, X., Geng, H., Wang, G., Wang, Z. and Zou, C.</span>
+            “<span class="paper-title">ART: Distribution-free and model-agnostic changepoint detection with finite-sample guarantees</span>”,
+            <em class="paper-venue">JRSSB</em><span class="paper-details">, accepted</span>.
+          </li>
+          <li class="paper">
+            <span class="paper-authors">Lu, L., Huo, Y., Ren, H., Wang, Z. and Zou, C.</span>
+            “<span class="paper-title">Feedback-enhanced online multiple testing with applications to conformal selection</span>”,
+            <em class="paper-venue">JMLR</em><span class="paper-details">, 27(186), 1–86, 2026</span>.
+          </li>
+          <li class="paper">
+            <span class="paper-authors">Bao, Y., Huo, Y., Ren, H. and Zou, C.</span>
+            “<span class="paper-title">Cap: A general algorithm for online selective conformal prediction with fcr control</span>”,
+            <em class="paper-venue">JMLR</em><span class="paper-details">, 26 (287), 1–74, 2025</span>.
+          </li>
+          <li class="paper">
+            <span class="paper-authors">Qian, C., Wang, G. and Zou, C.</span>
+            “<span class="paper-title">Reliever: relieving the burden of costly model fits for changepoint detection</span>”,
+            <em class="paper-venue">JMLR</em><span class="paper-details">, 26 (203), 1–57, 2025</span>.
+          </li>
+          <li class="paper">
+            <span class="paper-authors">Cui, X., Geng, H., Ren, H., Wang, Z. and Zou, C.</span>
+            “<span class="paper-title">Online multiple changepoint detection with false discovery rate control</span>”,
+            <em class="paper-venue">IEEE Tran. Inform. Theory</em><span class="paper-details">, 72, 8697–8722, 2025</span>.
+          </li>
+          <li class="paper">
+            <span class="paper-authors">Wen, M., Jia, Y., Ren, H., Wang, Z. and Zou, C.</span>
+            “<span class="paper-title">Semi-supervised distribution learning</span>”,
+            <em class="paper-venue">Biometrika</em><span class="paper-details">, 112, asae056, 2025</span>.
+          </li>
+          <li class="paper">
+            <span class="paper-authors">Guo, X., Li, R., Zhang, Z. and Zou, C.</span>
+            “<span class="paper-title">Model-free statistical inference on high-dimensional data</span>”,
+            <em class="paper-venue">JASA</em><span class="paper-details">, 120, 186–197, 2025</span>.
+          </li>
+          <li class="paper">
+            <span class="paper-authors">Wu, X., Huo, Y., Ren, H. and Zou, C.</span>
+            “<span class="paper-title">Optimal subsampling via predictive inference</span>”,
+            <em class="paper-venue">JASA</em><span class="paper-details">, 119, 2844–2856, 2024</span>.
+          </li>
+          <li class="paper">
+            <span class="paper-authors">Cui, X., Geng, H., Wang, Z. and Zou, C.</span>
+            “<span class="paper-title">Robust estimation of high-dimensional linear regression with changepoints</span>”,
+            <em class="paper-venue">IEEE Tran. Inform. Theory</em><span class="paper-details">, 70, 7297–7319, 2024</span>.
+          </li>
+          <li class="paper">
+            <span class="paper-authors">Shi, L., Wang, G. and Zou, C.</span>
+            “<span class="paper-title">Low-rank matrix estimation in the presence of change-points</span>”,
+            <em class="paper-venue">JMLR</em><span class="paper-details">, 25 (220), 1–71, 2024</span>.
+          </li>
+          <li class="paper">
+            <span class="paper-authors">Bao, Y., Huo, Y., Ren, H. and Zou, C.</span>
+            “<span class="paper-title">Selective conformal inference with FCR control</span>”,
+            <em class="paper-venue">Biometrika</em><span class="paper-details">, 111, 727–742, 2024</span>.
+          </li>
+          <li class="paper">
+            <span class="paper-authors">Geng, H., Cui, X., Ren, H., and Zou, C.</span>
+            “<span class="paper-title">Large-scale two-sample comparison of support sets</span>”,
+            <em class="paper-venue">JASA</em><span class="paper-details">, 119, 1604–1618, 2024</span>.
+          </li>
+          <li class="paper">
+            <span class="paper-authors">Cui, X., Shi, L., Zhong, W. and Zou, C.</span>
+            “<span class="paper-title">Robust high-dimensional low-rank matrix estimation: optimal rate and data-adaptive tuning</span>”,
+            <em class="paper-venue">JMLR</em><span class="paper-details">, 24 (350), 1–57, 2023</span>.
+          </li>
+          <li class="paper">
+            <span class="paper-authors">Guo, X., Ren, H., Zou, C. and Li, R.</span>
+            “<span class="paper-title">Threshold selection in feature screening for error rate control</span>”,
+            <em class="paper-venue">JASA</em><span class="paper-details">, 118, 1773–1785, 2023</span>.
+          </li>
+          <li class="paper">
+            <span class="paper-authors">Chen, H., Ren, H., Yao, F. and Zou, C.</span>
+            “<span class="paper-title">Data-driven selection of the number of change-points via error rate control</span>”,
+            <em class="paper-venue">JASA</em><span class="paper-details">, 118, 1415–1428, 2023</span>.
+          </li>
+          <li class="paper">
+            <span class="paper-authors">Du, L., Guo, X., Sun, W. and Zou, C.</span>
+            “<span class="paper-title">False discovery rate control under general dependence by symmetrized data aggregation</span>”,
+            <em class="paper-venue">JASA</em><span class="paper-details">, 118, 607–621, 2023</span>.
+          </li>
+          <li class="paper">
+            <span class="paper-authors">Ren, H., Zou, C., Chen, N. and Li, R.</span>
+            “<span class="paper-title">Large-Scale datastreams surveillance via pattern-oriented-sampling</span>”,
+            <em class="paper-venue">JASA</em><span class="paper-details">, 117, 794–808, 2022</span>.
+          </li>
+          <li class="paper">
+            <span class="paper-authors">Zou, C., Ke, Y. and Zhang, W.</span>
+            “<span class="paper-title">Estimation of low rank high dimensional multivariate linear models for multi-response Data</span>”,
+            <em class="paper-venue">JASA</em><span class="paper-details">, 117, 693–703, 2022</span>.
+          </li>
+        </ol>
+      </section>
+      <section class="publication-group" id="conference-papers" aria-labelledby="conference-heading">
+        <h3 id="conference-heading">Refereed conference papers</h3>
+        <ol class="paper-list" id="conference-list">
+          <li class="paper">
+            <span class="paper-authors">Wang, X., Huo, Y., Peng, L. and Zou, C.</span>
+            “<span class="paper-title">Learning U-statistics with active inference</span>”,
+            <em class="paper-venue">ICML</em><span class="paper-details">, 2026</span>.
+          </li>
+          <li class="paper">
+            <span class="paper-authors">Min, Y., Peng, L. and Zou, C.</span>
+            “<span class="paper-title">Stable localized conformal prediction via transduction</span>”,
+            <em class="paper-venue">ICML</em><span class="paper-details">, 2026</span>.
+          </li>
+          <li class="paper">
+            <span class="paper-authors">Zhang, Y., Zhang, W., Zou, C. and Ren, H.</span>
+            “<span class="paper-title">Generalized boundary FDR control under arbitrary dependence: an approach on closure principle</span>”,
+            <em class="paper-venue">ICML</em><span class="paper-details">, 2026</span>.
+          </li>
+          <li class="paper">
+            <span class="paper-authors">Hu, Y., Tan, J., Zou, C., Bao, Y. and Ren, H.</span>
+            “<span class="paper-title">Conformal robustness control: a new strategy for robust decision</span>”,
+            <em class="paper-venue">ICLR</em><span class="paper-details">, 2026 (Oral)</span>.
+          </li>
+          <li class="paper">
+            <span class="paper-authors">Wu, J., Hu, D., Xia, S. and Zou, C.</span>
+            “<span class="paper-title">Distribution-informed online conformal prediction</span>”,
+            <em class="paper-venue">ICLR</em><span class="paper-details">, 2026</span>.
+          </li>
+          <li class="paper">
+            <span class="paper-authors">Min, Y., Zhang, C., Peng, L. and Zou, C.</span>
+            “<span class="paper-title">Personalized federated conformal prediction with localization</span>”,
+            <em class="paper-venue">NeurIPS</em><span class="paper-details">, 2025</span>.
+          </li>
+          <li class="paper">
+            <span class="paper-authors">Min, Y., Xu, F., Li, X., Zou, C. and Zhou, Y.</span>
+            “<span class="paper-title">Enhancing deep batch active learning for regression with imperfect data guided selection</span>”,
+            <em class="paper-venue">NeurIPS</em><span class="paper-details">, 2025</span>.
+          </li>
+          <li class="paper">
+            <span class="paper-authors">Peng, Q., Bao. Y., Ren, H., Wang, Z. and Zou, C.</span>
+            “<span class="paper-title">Conformal prediction with cellwise outliers: A detect-then-impute approach</span>”,
+            <em class="paper-venue">ICML</em><span class="paper-details">, 2025</span>.
+          </li>
+          <li class="paper">
+            <span class="paper-authors">Zhang, Y., Wei, Z., Ren, H. and Zou, C.</span>
+            “<span class="paper-title">e-GAI: e-value-based generalized α-investing for online false discovery rate control</span>”,
+            <em class="paper-venue">ICML</em><span class="paper-details">, 2025</span>.
+          </li>
+          <li class="paper">
+            <span class="paper-authors">Wu, X., Lu, L., Wang, Z. and Zou, C.</span>
+            “<span class="paper-title">Conditional testing based on localized conformal p-values</span>”,
+            <em class="paper-venue">ICLR</em><span class="paper-details">, 2025</span>.
+          </li>
+          <li class="paper">
+            <span class="paper-authors">Wu, J., Hu, D., Bao, Y., Xia, S. and Zou, C.</span>
+            “<span class="paper-title">Error-quantified conformal inference for time series</span>”,
+            <em class="paper-venue">ICLR</em><span class="paper-details">, 2025</span>.
+          </li>
+          <li class="paper">
+            <span class="paper-authors">Du, Z., Min, Y., Li, J., Lu, K., Zou, C., Peng, L., Chu, T. and Gong, M.</span>
+            “<span class="paper-title">LoCA: Location-aware cosine adaptation for parameter-efficient fine tuning</span>”,
+            <em class="paper-venue">ICLR</em><span class="paper-details">, 2025</span>.
+          </li>
+          <li class="paper">
+            <span class="paper-authors">Chen, G., Jia, Y., Wang, G. and Zou, C.</span>
+            “<span class="paper-title">Zipper: Addressing degeneracy in algorithm-agnostic inference</span>”,
+            <em class="paper-venue">NeurIPS</em><span class="paper-details">, 2024 (Spotlight)</span>.
+          </li>
+          <li class="paper">
+            <span class="paper-authors">Wang, X., Huo, Y., Peng, L. and Zou, C.</span>
+            “<span class="paper-title">Conformalized multiple testing after data-dependent selection</span>”,
+            <em class="paper-venue">NeurIPS</em><span class="paper-details">, 2024</span>.
+          </li>
+          <li class="paper">
+            <span class="paper-authors">Huo, Y., Lu, L., Ren, H. and Zou, C.</span>
+            “<span class="paper-title">Real-time selection under general constraints via predictive inference</span>”,
+            <em class="paper-venue">NeurIPS</em><span class="paper-details">, 2024</span>.
+          </li>
+          <li class="paper">
+            <span class="paper-authors">Yang, W., Shi, H., Guo, X. and Zou, C.</span>
+            “<span class="paper-title">Robust group and simultaneous inferences for high-dimensional single index model</span>”,
+            <em class="paper-venue">NeurIPS</em><span class="paper-details">, 2024</span>.
+          </li>
+          <li class="paper">
+            <span class="paper-authors">Qian, C., Wang, M., Ren, H. and Zou, C.</span>
+            “<span class="paper-title">ByMI: Byzantine machine identification with false discovery rate control</span>”,
+            <em class="paper-venue">ICML</em><span class="paper-details">, 2024</span>.
+          </li>
+          <li class="paper">
+            <span class="paper-authors">Chen, H., Jia, Y., Wang, G. and Zou, C. (2024).</span>
+            “<span class="paper-title">Uncertainty quantification for data-driven change-point learning via cross-validation</span>”,
+            <em class="paper-venue">AAAI</em><span class="paper-details">, 2024</span>.
+          </li>
+          <li class="paper">
+            <span class="paper-authors">Zhang, Y., Jiang, H., Ren, H., Zou, C. and Dou, D. (2022).</span>
+            “<span class="paper-title">AutoMS: Automatic model selection for novelty detection with error rate control</span>”,
+            <em class="paper-venue">NeurIPS</em><span class="paper-details">, 2022</span>.
+          </li>
+        </ol>
+      </section>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p><span id="footer-name">Changliang Zou</span> · <span id="footer-university">Nankai University</span></p>
+      <p><a href="#top">Back to top ↑</a></p>
+    </div>
+  </footer>
+</body>
+</html>
